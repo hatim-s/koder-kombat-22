@@ -1,0 +1,9 @@
+You are given an array A of size n and Q queries characterized with two integers l and r. Your job is to calculate the sum of numbers in the array, which have the prime factor count equal to any of the prime numbers in the range [l, r]. 
+
+$\phi(A)_p$ is defined as the number of elements in the array $A$ whose prime factor count is equal $p$ and $S$ $(l, r)$ is defined as the set of prime numbers in the range $[l, r]$. Your job is to calculate $\sum_{p \in S(l,r)}\phi(A)_p$.
+
+After the unfortunate demise of the king of <>, you, the bravest commander in chief has to take over the empire. During all these times, you have made several enemies, both outside the empire, and within. The counsil of ministers in the royal court, led by the <> has challenged your intellect as a ruler. You are famous around the entire western peninsula for your exceptional ability to tell the undivisibles that make up any given number. You have been blessed by the power to count the number of prime factors of any given number with utmost precision.
+
+The ministers, who want to see you fail, challenge you in your own battleground. You would be given the holy sequence of numbers, from the book of <>. Now, each minister will give you a set of numbers. The ministers, with all the best of mathematicians of the kingdom have come up with two wicked formulae: S (l, r) -> denotes the set of prime numbers in the range [l,r], and phi (A) _p denotes the count of numbers in the sequence A, whose prime factor count is P. For each minister's question, you have to determine the total sum of the counts of numbers in the sequence whose prime factors are equal to the prime numbers in the range [l,r].
+
+More preisely, you have to calculate Sigma _ p in S(l,r) [phi (A)_p].

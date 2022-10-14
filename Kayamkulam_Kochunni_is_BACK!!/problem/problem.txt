@@ -1,0 +1,29 @@
+Kayamkulam Kochunni is BACK!!
+
+You are given several districts of kerala. Each district is connected directly or indirectly to all other districts(the graph formed by connecting the districts is a tree). Each district
+has some gold reserves which is guarded by security. There are certain security levels(security level of x is more superior than security level y if x > y). Level x security, guardes the 
+districts which has x units of gold reserved.
+For those who don't know who Kayamkulam Kochunni is; He steals money/gold from rich and gives it to poor.
+Kayamkulam Kochunni is back in state and he is planning a big heist and he need your help to plan that heist. You are given k different scenario, each scenario will have a number which
+denotes his mood and the risk he is willing to take for the heist. Say for example if his mood is x for a particular scenario then he will only steal from those districts who's security 
+level is less or equal to x. Find the maximum amount of loot he can pull off for each of the given scenario.
+
+Note
+1. He can start his heist from any district, but once the heist starts he can only go to its adjacent districts.
+2. Say if his mood level for a particular scenario is x then, he will get caught if he goes to district who's security level is more than x(i.e total loot will be 0)
+
+
+INPUT:
+1) No of Districts i.e (number of nodes in graph(n))
+2) All roads connecting the districts i.e (all n-1 edges of the graph)
+3) No of scenarios(No of queries: q)
+4) All q queries
+
+CONSTRAINTS:
+1) No of nodes(n) : 1 <= n <= 10e5
+2) Unit of gold each district has(g) : 1 <= g <= 10e4
+3) No of queries(q) : 1 <= q <= 10e5
+4) Value of each queries(val) : 1 <= val <= 10e5
+
+OUTPUT: 
+For each queries print the maximum gold kayamkulam kochunni can steal. 

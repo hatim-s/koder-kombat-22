@@ -1,0 +1,24 @@
+You enter the tournament of knights. there are n other participants having distinct powers pi and i being the participation no. if there is match between 2 knights, the knight having higher power wins, if they have the same power then it ends in a draw. In order to progress to the next round you will have to compete against a certain no of other knights and defeat all of them, both the power and participation no of the knights should be increasing that is if a knight of power x and participation no y is defeated then the next knight whom you should defeat should have power > x and participation no > y.
+
+given q queries
+
+for each of the queries your power (pow) and the no of knights to be defeated to progress (no) are given. print the no of possible ways to progress to the next round modulo 1e9+7.
+
+constraints
+
+0<n<=10^5
+0<pi<=n
+0<q<=10^5
+0<powi<=10^9
+0<noi<=10
+
+input
+
+the first line contains an integers n represening the number of fellow participants
+the next line contains an array of n integers [p1,p2,p3....,pn], pi representing the power of ith participant
+The third line contains an integer representing the number of queries
+each of the following q lines contain queries,  The ith line contains 2 integers, representing your power and the no of knights to be defeated.
+
+output format
+
+for each of the q queries print a number, the no of ways you can proceed to the next round modulo 1e9+7.

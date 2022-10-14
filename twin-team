@@ -1,0 +1,23 @@
+Twin Team
+
+It's your twin's and your birthday (Woohoo!!) and your family is throwing a birthday bash. All the n-1 pairs of twins in your neighbourhood are attending the party. In the party, a game of chinese whisper is organized. 
+You and your twin are team number 1, and similarly all the other twin-pairs are team numbers 2 to n. The order in which children are supposed to make a move is given in a list a. a contains every integer 1 to n exactly twice. ai = x denotes that the ith turn is of one of the twins of team number x.
+The game begins with a binary-string (only made of 0s and 1s) s, of length 2n.
+Let’s say l < r and al = x and ar = x. Then the moves that the children make are as follows:
+    • The lth participant inverts all the bits in the range [l,r]. (l and r both inclusive) in s.
+    • The rth participant inverts the lth and rth bits in s.
+The score of team number x will be the number of 1s in s after the rth participant makes it moves.
+In simple words, in each twin-pair, the first twin to make a move will invert the substring slsl+1....sr-1sr and the second twin will invert sl and sr , if the first and second twins are present at index l and r in the list a and the score of twin team is the number of 1s in s after the second twin makes his/her move.
+The first move will be made by you and the last one will be made by your twin, i.e., a1 = 1 and a2n = 1.
+As it’s your special day, you get to decide the starting binary-string s. Thus you need to now figure out the starting binary-string s so that your team scores the highest possible score (a score that not just beats all the other teams, but the maximum possible score).
+
+
+Input: 
+Each test contains multiple test cases. The first line contains an integer t (1≤t≤10^5) — the number of test cases. The following lines contain the description of each test case.
+The first line of each test case contains one integer n (1≤n≤10^5) indicating the number of pairs of twins (including you and your twin).
+The second line of each test case contains exactly 2n integers a1, a2,…, a2n-1, a2n (1≤ai≤n) denoting the order in which the twin pairs must make their moves. It is guaranteed that each number 1 to n is present exactly twice. It is also guaranteed ai = 1 and a2n = 1.
+It is guaranteed that the sum of n values over all test cases does not exceed 3x10^5.
+
+
+Output: 
+For each test case, print the starting binary string s in order for your team to score the maximum possible score. It can be guaranteed that the answer is unique.

@@ -1,0 +1,20 @@
+After the unfortunate demise of The Antient One, you have to become the next Sorcerer Supreme. The other sorcerers in the Sanctum Santorum, led by Mordo has challenged your intellect as the Sorcerer Supreme. You have gained an exceptional ability to count the number of prime factors of any given number with utmost precision.
+
+The sorcerers, who want to see you fail, challenge you in your own battleground. You would be given the holy sequence of numbers $A_i$ ($1 \le i \le n$) of length $n$, from the book of Vishanti. Now each sorcerer will give you a number $m$. The sorcerers have come up with two wicked spells: $S (l, r)$ denotes the set of prime numbers in the range $[l,r]$, and $\phi (A)_p$ denotes the count of numbers in the sequence $A$, whose prime factor count is $p$. For each sorcerer's question, you have to determine the total sum of the counts of numbers in the sequence whose prime factors are equal to the prime numbers in the range [l,r]. More precisely, you have to calculate $\Sigma _ {p \in S(l,r)} \phi (A)_p$.
+
+INPUT FORMAT:
+The first line contains two integers $n$ and $m$.
+
+The second line contains $n$ integers, $A_i$ ($1 \le i \le n$).
+
+The following $m$ lines contains two integers $l$ and $r$ each.
+
+OUTPUT FORMAT:
+The output for each query contains one integer denoting the total count of numbers such that the number of prime factors is equal to any prime number in the range $[l,r]$.
+
+CONSTRAINTS:
+$1 \le n, m \le 10^6$
+
+$1 \le A_i \le 10^7$
+
+$1 \le l,r \le 10^3$

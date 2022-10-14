@@ -1,0 +1,38 @@
+It was the day to decide the fate of Paradis Island and that of Wall Maria.  
+Commander Erwin Smith and his soldiers are in battle against the titans. After Erwin (who was riding a horse) got wiped away, to ensure a win for Paradis Island , 
+Captain Levi, who is also riding a horse should take out maximum number of enemies.
+This situation is a chess match on a n x n chess board. Both Erwin and Levi are knights.
+If Levi can have infinite moves while the enemies stay idle, how many enemies can he take down??
+
+"Dedicate your hearts.. Shinzouuu wo Sasageoo..."
+
+First line of the input contains t, the number of test cases. t test cases follow.
+
+The first line of each test case contains an integer n, the size of the chess board.
+
+Following that, You are given n arrays of length n in n lines denoting a nxn chessboard with white pieces and black pieces. 
+
+White pieces have positive values and black pieces have negative values. 
+There is only one black knight. 
+Blank spaces are represented by 0 and black knight has a value of -3,( represented by -3)
+Find the maximum score the black knight can get, given that it can make any number of moves on the frozen chess board, and cannot take its own pieces.
+
+Constraints:
+1<= t <= 100
+1<= n <= 1000
+
+                                         insert pic1 and pic2 here
+pic description: given in the picture is a 4 x 4 chess board. the knight can move to all places marked x in the map, which gives it a maximum score of 2( 2 white pawns can be taken)
+
+
+Sample input:
+1
+4
+1 3 0 1
+0 0 0 -1
+-1 0 -1 0
+0 -3 0 0
+
+Sample output:
+2
+

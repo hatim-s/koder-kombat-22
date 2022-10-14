@@ -1,0 +1,12 @@
+given an array of integers [a1,a2,a3,....,an]
+find a pair of integers from the array where xor of cnti and cntj is max.
+where cnti represents the no of non prime factors for the ith element in the array. If there are multiple pairs having the same value then select the pair whose
+min(ap, aq) < min(ax,ay) then select (ap,aq)
+
+if min(ap, aq) = min(ax,ay) then select the pair having the higher value that is if max(ap,aq) > max(ax,ay) select (ap,aq) otherwise select (ax,ay).
+
+print the pair of integers such that the first number is less than or equal to the second
+
+//1<=T<=100
+//2<=N<=50
+//2<=Ai<=1e12

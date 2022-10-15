@@ -6,10 +6,10 @@ int main() {
     
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    #ifndef ONLINE_JUDGE
-    freopen("input00.txt","r",stdin);
-    freopen("output00.txt","w",stdout);
-    #endif
+    // #ifndef ONLINE_JUDGE
+    // freopen("input00.txt","r",stdin);
+    // freopen("output00.txt","w",stdout);
+    // #endif
     
     int tc;
     scanf("%d", &tc);

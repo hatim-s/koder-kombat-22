@@ -175,11 +175,11 @@ ll divisorpow(ll no){
 }
 
 int main() {
-#ifndef ONLINE_JUDGE
-freopen("inputf.in", "r", stdin);
-freopen("outputf.in", "w", stdout);
-freopen("Error.txt", "w", stderr);
-#endif
+// #ifndef ONLINE_JUDGE
+// freopen("inputf.in", "r", stdin);
+// freopen("outputf.in", "w", stdout);
+// freopen("Error.txt", "w", stderr);
+// #endif
 
     //fast io
     ios_base::sync_with_stdio(false);

@@ -24,10 +24,10 @@ void union_sets(int a, int b, vector<int>& parent, vector<int>& size) {
 }
 
 int main(){
-    #ifndef ONLINE_JUDGE
-    freopen("sample_input2.txt", "r", stdin);
-    freopen("sample_output2.txt", "w", stdout);
-    #endif
+    // #ifndef ONLINE_JUDGE
+    // freopen("sample_input2.txt", "r", stdin);
+    // freopen("sample_output2.txt", "w", stdout);
+    // #endif
 
     // Since the graph is a tree no of edges is nodes-1;
     int nodes; 

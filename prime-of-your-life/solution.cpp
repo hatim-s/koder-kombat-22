@@ -22,10 +22,10 @@ class primeSieve {
 };
 
 int main () {
-    #ifndef ONLINE_JUDGE
-    freopen ("input.txt", "r", stdin);
-    freopen ("output.txt", "w", stdout);
-    #endif
+    // #ifndef ONLINE_JUDGE
+    // freopen ("input.txt", "r", stdin);
+    // freopen ("output.txt", "w", stdout);
+    // #endif
     
     int n, m; cin>>n>>m;
     vector <int> nums (n);
@@ -54,6 +54,7 @@ int main () {
         int l, r; cin >> l >> r;
         l = *lower_bound (primes.begin(), primes.end(), l);
         r = (sieve.isPrime (r)) ? r : *(lower_bound (primes.begin(), primes.end(), r) - 1);
+        
         cout << factor_count [hashtable[r]] - factor_count [hashtable[l]-1] <<"\n";
     }
 }

@@ -32,6 +32,7 @@ int main () {
     for (auto& ni : nums) cin >> ni;
 
     primeSieve sieve (sze);
+
     int idx = 1;
     unordered_map <int,int> hashtable;
     vector <int> primes;
@@ -41,13 +42,15 @@ int main () {
             primes.push_back (i);
             idx++;
         }
+        if (idx == 101) break;
     }
 
-    vector <int> factor_count (hashtable.size() + 1, 0);
+    vector <int> factor_count (101, 0);
     for (const auto& ni : nums) 
         if (sieve.isPrime (sieve.primeFactors (ni)))
             factor_count [hashtable[sieve.primeFactors (ni)]]++;
     
+    factor_count[0] = 0;
     partial_sum (factor_count.begin(), factor_count.end(), factor_count.begin());
 
     while (m--){

@@ -11,12 +11,12 @@ bool isPrime (int x){
 int main() {
     #ifndef ONLINE_JUDGE
     freopen ("input.txt", "r", stdin);
-    freopen ("primes-1e3.txt", "w", stdout);
+    freopen ("primes-1e5.txt", "w", stdout);
     #endif
 
     vector <int>  primes;
-    int p = 3162;
-    while (primes.size() < 100){
+    int p = 1e5;
+    while (primes.size() < 20){
         if (isPrime (p)) primes.push_back(p);
         p--;
     }

@@ -33,8 +33,8 @@ int solve2(int** board,int x,int y,int n)
 int main()
 {
     // #ifndef ONLINE_JUDGE
-    // freopen("input30.txt", "r", stdin);
-    // freopen("output30.txt", "w", stdout);
+    // freopen("./extras/testcases/input/input5.txt", "r", stdin);
+    // freopen("./extras/testcases/output/output5.txt", "w", stdout);
     // #endif
 
 	int t;

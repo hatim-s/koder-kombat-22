@@ -62,18 +62,20 @@ int main() {
     cin.tie(NULL);
 
     #ifndef ONLINE_JUDGE
-    freopen ("primes-1e3.txt", "r", stdin);
-    freopen ("input35.txt", "w", stdout);
+    freopen ("primes-1e5.txt", "r", stdin);
+    freopen ("../testcases/input/input15.txt", "w", stdout);
     #endif
 
-    vector <int> primes (50);
+    vector <int> primes (20);
     for (auto& pri : primes) cin >> pri;
 
     int n = getRandomNumber (1e6, 1e6), m = getRandomNumber (1e6, 1e6);
     cout<<n<<" "<<m<<"\n";
     for (int i = 0; i < n; i++){
-        int temp = getRandomNumber (0, 49), temp2 = getRandomNumber (0, 49);
-        cout << primes[temp] * primes[temp2] <<" ";
+        int temp = getRandomNumber (0, 19);
+        // int temp2 = getRandomNumber (0, 19);
+        cout << primes[temp] <<" ";
+        // cout << temp << " ";
     }
     cout <<"\n";
 

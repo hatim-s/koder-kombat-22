@@ -11,10 +11,10 @@ void sieve (){
 bool isPrime (int x) { return sv[x] == 2; }
 
 int main (){
-    #ifndef ONLINE_JUDGE
-    freopen("./input/input15.txt", "r", stdin);
-    freopen("./output/output15.txt", "w", stdout);
-    #endif
+    // #ifndef ONLINE_JUDGE
+    // freopen("./input/input15.txt", "r", stdin);
+    // freopen("./output/output15.txt", "w", stdout);
+    // #endif
 
     sieve ();
 

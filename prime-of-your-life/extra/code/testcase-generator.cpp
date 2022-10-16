@@ -69,13 +69,14 @@ int main() {
     vector <int> primes (20);
     for (auto& pri : primes) cin >> pri;
 
-    int n = getRandomNumber (1e6, 1e6), m = getRandomNumber (1e6, 1e6);
+    int n = getRandomNumber (2*1e5, 2*1e5), m = getRandomNumber (2*1e5, 2*1e5);
     cout<<n<<" "<<m<<"\n";
     for (int i = 0; i < n; i++){
         int temp = getRandomNumber (0, 19);
         // int temp2 = getRandomNumber (0, 19);
-        cout << primes[temp] <<" ";
         // cout << temp << " ";
+        // cout << primes[temp] * primes[temp2] <<" ";
+        cout << primes[temp] <<" ";
     }
     cout <<"\n";
 

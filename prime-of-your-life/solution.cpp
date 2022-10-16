@@ -1,63 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define sze 10000000
+vector <int> sv = vector <int> (1e7+1, 0);
+void sieve (){
+    for (int i = 1; i < sv.size(); i++) 
+        for (int j = i; j < sv.size(); j+=i)
+            sv[j]++;
+}
 
-class primeSieve {
-    public:
-    vector <int> sv;
-    primeSieve (int sz){
-        sv.resize (sz+1, 0);
-        sv[0] = sv[1] = 0;
-        for (int i = 2; i <= sz; i++){
-            if (sv[i] == 0) {
-                sv[i] = -1;
-                for (int j = 2*i; j <= sz; j += i) sv[j]++;
-            }
-        }
-    }
-    bool isPrime (int num) { return sv[num] == -1; }
-    int primeFactors (int num) { return abs(sv[num]); }
-    void printSieve () { for (const auto& si : sv) cout << si << "\n"; }
-};
+bool isPrime (int x) { return sv[x] == 2; }
 
-int main () {
-    // #ifndef ONLINE_JUDGE
-    // freopen ("input.txt", "r", stdin);
-    // freopen ("output.txt", "w", stdout);
-    // #endif
-    
-    int n, m; cin>>n>>m;
-    vector <int> nums (n);
-    for (auto& ni : nums) cin >> ni;
+int main (){
+    #ifndef ONLINE_JUDGE
+    freopen("./input/input35.txt", "r", stdin);
+    freopen("./output/output35.txt", "w", stdout);
+    #endif
 
-    primeSieve sieve (sze);
+    sieve ();
 
-    int idx = 1;
-    unordered_map <int,int> hashtable;
-    vector <int> primes;
-    for (int i = 2; i <= sze; i++) {
-        if (sieve.isPrime (i)) {
-            hashtable [i] = idx; 
-            primes.push_back (i);
-            idx++;
-        }
-        if (idx == 101) break;
+    int n, m; cin>> n >> m;
+    vector <int> vec (n);
+    vector <int> cnt (101, 0);
+
+    for (int& vi : vec){
+        cin>>vi;
+        if (!isPrime(sv[vi]) && sv[vi] <= 100) cnt[sv[vi]]++;
     }
 
-    vector <int> factor_count (101, 0);
-    for (const auto& ni : nums) 
-        if (sieve.isPrime (sieve.primeFactors (ni)))
-            factor_count [hashtable[sieve.primeFactors (ni)]]++;
-    
-    factor_count[0] = 0;
-    partial_sum (factor_count.begin(), factor_count.end(), factor_count.begin());
+    partial_sum (cnt.begin(), cnt.end(), cnt.begin());
 
     while (m--){
         int l, r; cin >> l >> r;
-        l = *lower_bound (primes.begin(), primes.end(), l);
-        r = (sieve.isPrime (r)) ? r : *(lower_bound (primes.begin(), primes.end(), r) - 1);
-        
-        cout << factor_count [hashtable[r]] - factor_count [hashtable[l]-1] <<"\n";
+        cout << cnt[r] - cnt[l-1] << "\n";
     }
 }

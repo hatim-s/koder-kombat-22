@@ -1,117 +1,63 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void make_set(int v, vector<int>& parent, vector<int>& size) {
-    parent[v] = v;
-    size[v] = 1;
+bool isPrime (int x) {
+    for (int j = 2; j * j <= x; j++) if (x % j == 0) return false;
+    return true;
 }
 
-int find_set(int v, vector<int>& parent) {
-    if (v == parent[v])
-        return v;
-    return parent[v] = find_set(parent[v], parent);
-}
 
-void union_sets(int a, int b, vector<int>& parent, vector<int>& size) {
-    a = find_set(a, parent);
-    b = find_set(b, parent);
-    if (a != b) {
-        if (size[a] < size[b])
-            swap(a, b);
-        parent[b] = a;
-        size[a] += size[b];
-    }
-}
+int main (){
+    // #ifndef ONLINE_JUDGE
+    // freopen("../prime-of-your-life/input/input00.txt", "r", stdin);
+    // freopen("output05.txt", "w", stdout);
+    // #endif
 
-int main(){
-    #ifndef ONLINE_JUDGE
-    freopen("input18.txt", "r", stdin);
-    freopen("output18.txt", "w", stdout);
-    #endif
+    int n, m; cin >> n >> m;
+    vector <int> vec (n);
+    for (int& vi : vec) cin >> vi;
 
-    // Since the graph is a tree no of edges is nodes-1;
-    int nodes; 
-    cin >> nodes;
-
-    vector<pair<int,int>> edges;
-    map<int,vector<pair<int,int>>> adj;
-    vector<int> a(nodes,0);
-    map<int,int> ans;
-    unordered_set<int> distinctGoldUnits;
-    vector<int> queries;
-
-    for(int i=0; i<nodes-1; i++){
-        int u,v;
-        cin >> u >> v;
-        edges.push_back({u,v});
-    }
-
-    for(int i=0; i<nodes; i++){
-        cin >> a[i];
-        distinctGoldUnits.insert(a[i]);
-    }
-
-    for(auto x : edges){
-        int u = x.first;
-        int v = x.second;
-        adj[max(a[u],a[v])].push_back({u,v});
-    }
-
-    vector<int> size(nodes,0);
-    vector<int> parent(nodes,0);
-    vector<int> gold(nodes,0);
-
-    for(int i=0; i<nodes; i++){
-        make_set(i,parent,size);
-        gold[i] = a[i];
-    }
-
-    int bestGoldSoFar = 0;
-    for(auto x : adj){
-        int cur_val = x.first;
-        int goldForThisLevel = 0;
-        for(auto y : x.second){
-            int parent1 = find_set(y.first,parent);
-            int parent2 = find_set(y.second,parent);
-            int totalGold = (parent1==parent2) ? gold[parent1] : (gold[parent1]+gold[parent2]);
-    
-            goldForThisLevel = max(goldForThisLevel,totalGold);
-            union_sets(y.first,y.second,parent,size);
-            int newParent = find_set(y.first,parent);
-            gold[newParent] = totalGold;
-        }
-        bestGoldSoFar = max(bestGoldSoFar,goldForThisLevel);
-        ans[cur_val] = bestGoldSoFar;
-    }
-
-    int q; cin >> q;
-    for(int i=0; i<q; i++){
-        int temp; cin >> temp;
-        queries.push_back(temp);
-    }
-
-    // for(auto val : ans)
-    //     cout << val.first << " " << val.second << endl;
-    // cout << endl;
-
-    for(auto val:queries){
-        int ret = 0;
-        ret = (distinctGoldUnits.find(val)!=distinctGoldUnits.end()) ? (*distinctGoldUnits.find(val)) : 0;
-
-        auto iter = ans.lower_bound(val);
-        if(iter == ans.end()){
-            iter--;
-            ret = max(ret,(*iter).second);
-        }
-        else if((*iter).first == val){
-            ret = max(ret,(*iter).second);
-        }
-        else{
-            if(iter != ans.begin()){
-                iter--;
-                ret = max(ret,(*iter).second);
+    vector <int> cnt (101, 0);
+    for (int i = 0 ; i < n; i++){
+        int vi = vec[i];
+        int factors = 1;
+        for (int j = 2; j * j <= vi; j++){
+            int cnt = 0;
+            while (vi % j == 0){
+                vi = vi/j;
+                cnt++;
             }
+            factors = factors * (cnt+1);
         }
-        cout << ret << endl;
+
+        if (vi > 1) factors = 2*factors;
+
+        // cout << vec[i] << " " << factors << "\n";
+        if (factors <= 100) cnt[factors]++;
     }
+
+    // for (int i = 0; i < 10; i++) cout << cnt[i] << " "; cout << "\n";
+    for (int i = 2; i <= 100; i++){
+        if (isPrime(i)) cnt[i] = 0;
+    }
+
+    partial_sum (cnt.begin(), cnt.end(), cnt.begin());
+
+    while (m--){
+        int l, r;
+        cin>> l >> r;
+
+        int ans = cnt[r] - cnt[l-1];
+        cout << ans <<"\n";
+    }
+
+    return 0;
 }
+
+/*
+7 3
+19 25 10 30 105 3 8
+1 3
+2 2
+2 5
+*/

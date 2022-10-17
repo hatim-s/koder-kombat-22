@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector <int> sv = vector <int> (1e5+1, 0);
+vector <int> sv = vector <int> (1e6+1, 0);
 void sieve (){
     for (int i = 1; i < sv.size(); i++) 
         for (int j = i; j < sv.size(); j+=i)
@@ -12,8 +12,8 @@ bool isPrime (int x) { return sv[x] == 2; }
 
 int main (){
     // #ifndef ONLINE_JUDGE
-    // freopen("./input/input15.txt", "r", stdin);
-    // freopen("./output/output15.txt", "w", stdout);
+    // freopen("./extra/testcases/input/input10.txt", "r", stdin);
+    // freopen("./extra/testcases/output/output10.txt", "w", stdout);
     // #endif
 
     sieve ();

@@ -25,8 +25,8 @@ void union_sets(int a, int b, vector<int>& parent, vector<int>& size) {
 
 int main(){
     // #ifndef ONLINE_JUDGE
-    // freopen("./extras/testcases/input/input18.txt", "r", stdin);
-    // freopen("./extras/testcases/output/output18.txt", "w", stdout);
+    // freopen("input32.txt", "r", stdin);
+    // freopen("output32.txt", "w", stdout);
     // #endif
 
     // Since the graph is a tree no of edges is nodes-1;
@@ -37,7 +37,6 @@ int main(){
     map<int,vector<pair<int,int>>> adj;
     vector<int> a(nodes,0);
     map<int,int> ans;
-    unordered_set<int> distinctGoldUnits;
     vector<int> queries;
 
     for(int i=0; i<nodes-1; i++){
@@ -48,7 +47,7 @@ int main(){
 
     for(int i=0; i<nodes; i++){
         cin >> a[i];
-        distinctGoldUnits.insert(a[i]);
+        ans[a[i]]=a[i];
     }
 
     for(auto x : edges){
@@ -81,7 +80,7 @@ int main(){
             gold[newParent] = totalGold;
         }
         bestGoldSoFar = max(bestGoldSoFar,goldForThisLevel);
-        ans[cur_val] = bestGoldSoFar;
+        ans[cur_val] = max(bestGoldSoFar, ans[cur_val]);
     }
 
     int q; cin >> q;
@@ -96,7 +95,6 @@ int main(){
 
     for(auto val:queries){
         int ret = 0;
-        ret = (distinctGoldUnits.find(val)!=distinctGoldUnits.end()) ? (*distinctGoldUnits.find(val)) : 0;
 
         auto iter = ans.lower_bound(val);
         if(iter == ans.end()){
